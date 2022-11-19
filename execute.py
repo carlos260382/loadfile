@@ -56,7 +56,7 @@ def get_file_png(filename):
     #     if len(files_png) > 0:
     #         for file in files_png:
     # try:
-    img = cv2.imread(".\\%s" % filename)
+    img = cv2.imread("./%s" % filename)
     for code in decode(img):
         if (code.type == 'QRCODE'):
             urls.append(code.data.decode('utf-8'))
