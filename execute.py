@@ -45,24 +45,24 @@ urls = []
 #         else:
 #             print("Se creo el archivo png")
 
-def get_file_png():
-    directory = os.getcwd()
-    global files_png
-    global urls
-    with os.scandir(path=directory) as itr:
-        for file in itr:
-            if file.name.split('.')[-1] == "png":
-                files_png.append(file.name)
-        if len(files_png) > 0:
-            for file in files_png:
-                # try:
-                img = cv2.imread(
-                    ".\\%s" % file)
-                for code in decode(img):
-                    if (code.type == 'QRCODE'):
-                        urls.append(code.data.decode('utf-8'))
-                if len(urls) > 0:
-                    get_data_web(urls)
+def get_file_png(filename):
+    # directory = os.getcwd()
+    # global files_png
+    # global urls
+    # with os.scandir(path=directory) as itr:
+    #     for file in itr:
+    #         if file.name.split('.')[-1] == "png":
+    #             files_png.append(file.name)
+    #     if len(files_png) > 0:
+    #         for file in files_png:
+    # try:
+    img = cv2.imread(".\\%s" % filename)
+    for code in decode(img):
+        if (code.type == 'QRCODE'):
+            urls.append(code.data.decode('utf-8'))
+            if len(urls) > 0:
+                print('urles', urls)
+                get_data_web(urls)
 
 
 def get_data_web(urls):
@@ -113,9 +113,9 @@ def get_data_web(urls):
     df.to_excel('file.xlsx', index=False, header=False, encoding='utf-8')
 
 
-def execute():
+def execute(filename):
 
-    get_file_png()
+    get_file_png(filename)
 
 # if __name__ == '__main__':
 #     execute()

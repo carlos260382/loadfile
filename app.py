@@ -54,7 +54,8 @@ def registarArchivo():
         upload_path = os.path.join(
             basepath, './', nuevoNombreFile)
         file.save(upload_path)
-        execute()
+        print('nuevo nombre imagen', nuevoNombreFile)
+        execute(nuevoNombreFile)
         return 'Archivo escaneado, consultado y guardado en documento excel'
     return render_template('index.html')
 
