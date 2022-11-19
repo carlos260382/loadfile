@@ -73,7 +73,6 @@ python-dateutil==2.8.2
 python-dotenv==0.21.0
 pytweening==1.0.4
 pytz==2022.4
-pywin32==304
 pyzbar==0.1.9
 pyzmq==24.0.1
 requests==2.28.1
